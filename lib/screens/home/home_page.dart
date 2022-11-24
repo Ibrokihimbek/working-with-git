@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:working_with_git/screens/home/widgets/home_appbar_widget.dart';
+import 'package:working_with_git/utils/app_icon.dart';
+import 'package:working_with_git/widgets/custom_appbar_widget.dart';
 import 'package:working_with_git/screens/home/widgets/home_category_widget.dart';
 import 'package:working_with_git/screens/home/widgets/home_search_widget.dart';
 import 'package:working_with_git/utils/app_colors.dart';
@@ -27,17 +28,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.C_FEFEFE,
-      appBar: MyCustomAppBar(onMoreTap: () {}, onBasketTap: () {}),
+      appBar: MyCustomAppBar(
+        onMoreTap: () {},
+        onBasketTap: () {},
+        iconName: AppIcon.icon_more,
+        iconName1: AppIcon.icon_basket,
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            title: Text('developper team',
-                style: fontInterW600(appcolor: AppColors.C_1D1E20)
-                    .copyWith(fontSize: 28.sp)),
-            subtitle: Text('Welcome to Laza',
-                style: fontInterW400(appcolor: AppColors.C_8F959E)
-                    .copyWith(fontSize: 15.sp)),
+            title: Text(
+              'developper team',
+              style: fontInterW600(appcolor: AppColors.C_1D1E20)
+                  .copyWith(fontSize: 28.sp),
+            ),
+            subtitle: Text(
+              'Welcome to Laza',
+              style: fontInterW400(appcolor: AppColors.C_8F959E)
+                  .copyWith(fontSize: 15.sp),
+            ),
           ),
           SizedBox(height: 20.h),
           const Padding(
@@ -75,6 +85,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildPadding(int index) {
     return InkWell(
+      borderRadius: BorderRadius.circular(25.r),
       onTap: (() {
         setState(() {
           pageIndex = index;
@@ -94,12 +105,14 @@ class _HomePageState extends State<HomePage> {
           child: Center(
             child: Text(
               cotegoryList[index],
-              style: fontInterW600(appcolor: AppColors.C_1D1E20),
+              style: fontInterW600(
+                appcolor:
+                    index == pageIndex ? Colors.white : AppColors.C_1D1E20,
+              ),
             ),
           ),
         ),
       ),
-
     );
   }
 }

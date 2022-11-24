@@ -5,14 +5,14 @@ class ShimmerCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return    Container(
+    return    SizedBox(
       height: MediaQuery.of(context).size.height*0.82,
       child:  Shimmer.fromColors(
           baseColor: Colors.grey[300]!,
           highlightColor: Colors.grey[400]!,
           child: Container(
-            padding: EdgeInsets.all(12),
-            child: Container(
+            padding: const EdgeInsets.all(12),
+            child: SizedBox(
               height: MediaQuery
                   .of(context)
                   .size
@@ -27,7 +27,7 @@ class ShimmerCategory extends StatelessWidget {
                   itemCount: 4,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 2.5 / 3,
+                      childAspectRatio: 2.5 / 3.1,
                       mainAxisSpacing: 12,
                       crossAxisSpacing: 12
                   ),
