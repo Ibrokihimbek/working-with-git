@@ -20,8 +20,8 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   onNextPage(){
-    Future.delayed(Duration(seconds: 3000),(){
-        Navigator.pushNamed(context, RoutName.home);
+    Future.delayed(Duration(seconds: 3),(){
+        Navigator.pushNamed(context, RoutName.main);
     });
   }
 
