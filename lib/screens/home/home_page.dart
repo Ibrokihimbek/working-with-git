@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                     child: Center(
                       child: Text(
                         cotegoryList[index],
-                        style: fontInterW600(appcolor: AppColors.C_1D1E20),
+                        style: fontInterW600(appcolor:  index == pageIndex ? Colors.white : AppColors.C_1D1E20),
                       ),
                     ),
                   ),
