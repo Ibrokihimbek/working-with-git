@@ -5,10 +5,18 @@ import '../models/product_model.dart';
 
 class AppRepository{
 
-  static Future<List<ProductItem>> getCategoryItemData(String query) async {
+  static Future<List<ProductItem>> getCategoryItemData(int queryint) async {
+    List query = [
+      "",
+      "/category/electronics",
+      "/category/jewelery",
+      "/category/men's clothing",
+      "/category/women's clothing"
+
+    ];
     // String query = StorageRepository.getString("city");
     // print("sadfsadfasdfasdfafdasdf ${query}");
-    String url = "https://fakestoreapi.com/products${query}";
+    String url = "https://fakestoreapi.com/products${query[queryint]}";
     // ""                                       for all products
     // "/category/electronics",                 electronics
     // "/category/jewelery",                    jewelery
@@ -17,7 +25,8 @@ class AppRepository{
     try{
       Response response = await http.get(Uri.parse(url));
       if (200<=response.statusCode && response.statusCode <=300){
-        List<ProductItem> categories = (json as List?)
+        var jsonData = jsonDecode(response.body);
+        List<ProductItem> categories = (jsonData as List?)
             ?.map((item) => ProductItem.fromJson(item))
             .toList() ??
             [];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:working_with_git/screens/home/widgets/home_appbar_widget.dart';
+import 'package:working_with_git/screens/home/widgets/home_category_widget.dart';
 import 'package:working_with_git/screens/home/widgets/home_search_widget.dart';
 import 'package:working_with_git/utils/app_colors.dart';
 import 'package:working_with_git/widgets/style_widget.dart';
@@ -13,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int pageIndex = 0;
+
   List cotegoryList = [
     "All",
     "Electronics",
@@ -58,7 +62,30 @@ class _HomePageState extends State<HomePage> {
               itemCount: cotegoryList.length,
               shrinkWrap: true,
               itemBuilder: ((context, index) {
-                return Padding(
+                return buildPadding(index);
+              }),
+            ),
+          ),
+          
+          Expanded(
+            child: CategoryHomeItems(
+                listindex: pageIndex
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+
+  Widget buildPadding(int index) {
+    return InkWell(
+      onTap: ((){
+        setState(() {
+          pageIndex = index;
+        });
+      }),
+      child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
                     width: 170.w,
@@ -73,33 +100,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                );
-              }),
-            ),
-          ),
-          
-          Expanded(
-            child: GridView.builder(
-              shrinkWrap: true,
-              itemCount: 5,
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: Colors.amber,
-                  ),
-                );
-              },
-            ),
-          ),
-
-        ],
-      ),
+                ),
     );
   }
 }
