@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../data/api/models/product_model.dart';
 import '../../../data/api/repository/repository_item.dart';
+import '../../../utils/app_colors.dart';
+import '../../../widgets/style_widget.dart';
+import 'home_shimmer.dart';
 
 class CategoryHomeItems extends StatefulWidget {
   final int listindex;
@@ -18,7 +21,7 @@ class _CategoryHomeItemsState extends State<CategoryHomeItems> {
         future: AppRepository.getCategoryItemData(widget.listindex.toInt()),
         builder: (context, AsyncSnapshot<List<ProductItem>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return ShimmerCategory();
           }
           if (snapshot.hasData) {
             var data = snapshot.data;
