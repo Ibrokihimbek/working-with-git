@@ -12,7 +12,6 @@ class AppRepository{
       "/category/jewelery",
       "/category/men's clothing",
       "/category/women's clothing"
-
     ];
     // String query = StorageRepository.getString("city");
     // print("sadfsadfasdfasdfafdasdf ${query}");

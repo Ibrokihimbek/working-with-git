@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                     height: 50.h,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25.r),
-                        color: AppColors.C_F5F6FA),
+                        color: index == pageIndex ? AppColors.C_9775FA :AppColors.C_F5F6FA),
                     child: Center(
                       child: Text(
                         cotegoryList[index],
