@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-            initialRoute: RoutName.home,
-            onGenerateRoute: AppRoutes.generateRoute,
-            debugShowCheckedModeBanner: false,
-            title: 'Ecommerce',
-            theme: ThemeData(
-              primarySwatch: Colors.blue,
-            ),
-            );
+          initialRoute: RoutName.home,
+          onGenerateRoute: AppRoutes.generateRoute,
+          debugShowCheckedModeBanner: false,
+          title: 'Stylish',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+        );
       },
     );
   }
