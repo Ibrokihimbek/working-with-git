@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:working_with_git/screens/home/home_page.dart';
-import 'package:working_with_git/screens/splash/splash_page.dart';
+
 
 abstract class RoutName {
   static const splash = 'splash';
@@ -27,8 +27,8 @@ class AppRoutes {
       //   return MaterialPageRoute(builder: (_) => RegisterPage());
       // case RoutName.forgot:
       //   return MaterialPageRoute(builder: (_) => ForgotPage());
-      // case RoutName.main:
-      //   return MaterialPageRoute(builder: (_) => MainPage());
+      case RoutName.main:
+        return MaterialPageRoute(builder: (_) => MainPage());
       // case RoutName.checkout:
       //   return MaterialPageRoute(builder: (_) => CheckoutPaage());
       case RoutName.home:
