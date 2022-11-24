@@ -14,10 +14,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List cotegoryList = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
+    "All",
+    "Electronics",
+    "Jewelery",
+    "Men's clothing",
+    "Women's clothing",
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,15 +49,55 @@ class _HomePageState extends State<HomePage> {
               style: fontInterW600(appcolor: AppColors.C_1D1E20),
             ),
           ),
-          ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            itemCount: cotegoryList.length,
-            shrinkWrap: true,
-            itemBuilder: ((context, index) {
-              return Container();
-            }),
+          SizedBox(height: 15.h),
+          SizedBox(
+            height: 50.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: cotegoryList.length,
+              shrinkWrap: true,
+              itemBuilder: ((context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 170.w,
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.r),
+                        color: AppColors.C_F5F6FA),
+                    child: Center(
+                      child: Text(
+                        cotegoryList[index],
+                        style: fontInterW600(appcolor: AppColors.C_1D1E20),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
           ),
+          
+          Expanded(
+            child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: 5,
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.amber,
+                  ),
+                );
+              },
+            ),
+          ),
+
         ],
       ),
     );
