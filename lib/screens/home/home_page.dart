@@ -14,7 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int pageIndex = 0;
 
   List cotegoryList = [
@@ -66,13 +65,9 @@ class _HomePageState extends State<HomePage> {
               }),
             ),
           ),
-          
           Expanded(
-            child: CategoryHomeItems(
-                listindex: pageIndex
-            ),
+            child: CategoryHomeItems(listindex: pageIndex),
           ),
-
         ],
       ),
     );
@@ -80,27 +75,31 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildPadding(int index) {
     return InkWell(
-      onTap: ((){
+      onTap: (() {
         setState(() {
           pageIndex = index;
         });
       }),
       child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: 170.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.r),
-                        color: index == pageIndex ? AppColors.C_9775FA :AppColors.C_F5F6FA),
-                    child: Center(
-                      child: Text(
-                        cotegoryList[index],
-                        style: fontInterW600(appcolor:  index == pageIndex ? Colors.white : AppColors.C_1D1E20),
-                      ),
-                    ),
-                  ),
-                ),
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 170.w,
+          height: 50.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.r),
+            color: index == pageIndex
+                ? AppColors.C_9775FA.withOpacity(0.7)
+                : AppColors.C_F5F6FA,
+          ),
+          child: Center(
+            child: Text(
+              cotegoryList[index],
+              style: fontInterW600(appcolor: AppColors.C_1D1E20),
+            ),
+          ),
+        ),
+      ),
+
     );
   }
 }
