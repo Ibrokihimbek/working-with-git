@@ -9,10 +9,9 @@ class AppIcon {
   static const icon_wallet = 'assets/icons/icon_wallet.svg';
   static const icon_cart = 'assets/icons/icon_cart.svg';
   static const icon_home = 'assets/icons/icon_home.svg';
-
+  static const icon_back_arrow = 'assets/icons/icon_back_arrow.svg';
 
   // PNG
 
   static const image_splash = 'assets/images/splash_image.png';
-
 }

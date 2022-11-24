@@ -18,7 +18,6 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     Container(),
     Container(),
-    Container(),
   ];
 
   int currentPageIndex = 0;
@@ -45,16 +44,9 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(
               icon: SizedBox(
-                width: 50.w,
-                height: 30.h,
-                child: SvgPicture.asset(AppIcon.icon_home)
-              ),
-              label: ''),
-          BottomNavigationBarItem(
-              icon: SizedBox(
-                  width: 21.w,
-                  height: 21.h,
-                  child: SvgPicture.asset(AppIcon.icon_heart)),
+                  width: 50.w,
+                  height: 30.h,
+                  child: SvgPicture.asset(AppIcon.icon_home)),
               label: ''),
           BottomNavigationBarItem(
               icon: SizedBox(

@@ -6,12 +6,18 @@ import 'package:working_with_git/utils/app_colors.dart';
 import 'package:working_with_git/utils/app_icon.dart';
 
 class MyCustomAppBar extends StatelessWidget implements PreferredSize {
-  const MyCustomAppBar(
-      {Key? key, required this.onMoreTap, required this.onBasketTap})
-      : super(key: key);
+  const MyCustomAppBar({
+    Key? key,
+    required this.onMoreTap,
+    required this.onBasketTap,
+    required this.iconName,
+    required this.iconName1,
+  }) : super(key: key);
 
   final VoidCallback onMoreTap;
   final VoidCallback onBasketTap;
+  final String iconName;
+  final String iconName1;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,7 @@ class MyCustomAppBar extends StatelessWidget implements PreferredSize {
           child: SizedBox(
             width: 45.w,
             height: 45.h,
-            child: SvgPicture.asset(AppIcon.icon_more),
+            child: SvgPicture.asset(iconName),
           ),
         ),
       ),
@@ -37,7 +43,7 @@ class MyCustomAppBar extends StatelessWidget implements PreferredSize {
             child: SizedBox(
               width: 45.w,
               height: 45.h,
-              child: SvgPicture.asset(AppIcon.icon_basket),
+              child: SvgPicture.asset(iconName1),
             ),
           ),
         ),
