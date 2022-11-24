@@ -35,7 +35,6 @@ class AppRepository {
       throw Exception();
     }
   }
-
   static Future<ProductItem> getProductFromId(int id) async {
     String url = "https://fakestoreapi.com/products/${id}";
     try {
@@ -49,4 +48,5 @@ class AppRepository {
       throw Exception();
     }
   }
+
 }
