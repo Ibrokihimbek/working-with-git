@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:working_with_git/screens/home/home_page.dart';
+import 'package:working_with_git/screens/main/main_page.dart';
+import 'package:working_with_git/screens/splash/splash_page.dart';
 
 
 abstract class RoutName {
