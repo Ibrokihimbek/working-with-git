@@ -38,5 +38,19 @@ class AppRepository{
 
   }
 
+  static Future<ProductItem> getOneItemData(int query) async {
+    String url = "https://fakestoreapi.com/products/${query}";
+    try{
+      Response response = await http.get(Uri.parse(url));
+      if (200<=response.statusCode && response.statusCode <=300){
+        return ProductItem.fromJson(jsonDecode(response.body));
+      }
+      throw Exception();
+    }catch(e){
+      throw Exception();
+    }
+
+  }
+
 
 }
