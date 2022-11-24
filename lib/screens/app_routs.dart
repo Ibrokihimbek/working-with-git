@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:working_with_git/screens/home/home_page.dart';
+import 'package:working_with_git/screens/splash/splash_page.dart';
 
 abstract class RoutName {
   static const splash = 'splash';
@@ -18,8 +19,8 @@ abstract class RoutName {
 class AppRoutes {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      // case RoutName.splash:
-      //   return MaterialPageRoute(builder: (_) => SplashPage());
+      case RoutName.splash:
+        return MaterialPageRoute(builder: (_) => SplashPage());
       // case RoutName.login:
       //   return MaterialPageRoute(builder: (_) => LoginPage());
       // case RoutName.register:
