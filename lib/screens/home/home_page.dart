@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:working_with_git/screens/home/widgets/home_appbar_widget.dart';
 import 'package:working_with_git/screens/home/widgets/home_search_widget.dart';
 import 'package:working_with_git/utils/app_colors.dart';
-import 'package:working_with_git/utils/app_icon.dart';
 import 'package:working_with_git/widgets/style_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List cotegoryList = [
+    "electronics",
+    "jewelery",
+    "men's clothing",
+    "women's clothing",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +36,26 @@ class _HomePageState extends State<HomePage> {
                     .copyWith(fontSize: 15.sp)),
           ),
           SizedBox(height: 20.h),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
             child: HomeSearchPage(),
+          ),
+          SizedBox(height: 20.h),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12).r,
+            child: Text(
+              'Choose category',
+              style: fontInterW600(appcolor: AppColors.C_1D1E20),
+            ),
+          ),
+          ListView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemCount: cotegoryList.length,
+            shrinkWrap: true,
+            itemBuilder: ((context, index) {
+              return Container();
+            }),
           ),
         ],
       ),
