@@ -3,9 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import '../models/product_model.dart';
 
-class AppRepository{
-
-  static Future<List<ProductItem>> getCategoryItemData(int queryint) async {
+class AppRepository {
+  static Future<List<ProductItem>> getCategoryItemData(int queryInt) async {
     List query = [
       "",
       "/category/electronics",
@@ -15,42 +14,39 @@ class AppRepository{
     ];
     // String query = StorageRepository.getString("city");
     // print("sadfsadfasdfasdfafdasdf ${query}");
-    String url = "https://fakestoreapi.com/products${query[queryint]}";
+    String url = "https://fakestoreapi.com/products${query[queryInt]}";
     // ""                                       for all products
     // "/category/electronics",                 electronics
     // "/category/jewelery",                    jewelery
     // "/category/men's clothing",              men's clothing
     // "/category/women's clothing"             women's clothing
-    try{
+    try {
       Response response = await http.get(Uri.parse(url));
-      if (200<=response.statusCode && response.statusCode <=300){
+      if (200 <= response.statusCode && response.statusCode <= 300) {
         var jsonData = jsonDecode(response.body);
         List<ProductItem> categories = (jsonData as List?)
-            ?.map((item) => ProductItem.fromJson(item))
-            .toList() ??
+                ?.map((item) => ProductItem.fromJson(item))
+                .toList() ??
             [];
         return categories;
       }
       throw Exception();
-    }catch(e){
+    } catch (e) {
       throw Exception();
     }
-
   }
-
-  static Future<ProductItem> getOneItemData(int query) async {
-    String url = "https://fakestoreapi.com/products/${query}";
-    try{
+  static Future<ProductItem> getProductFromId(int id) async {
+    String url = "https://fakestoreapi.com/products/${id}";
+    try {
       Response response = await http.get(Uri.parse(url));
-      if (200<=response.statusCode && response.statusCode <=300){
-        return ProductItem.fromJson(jsonDecode(response.body));
+      if (200 <= response.statusCode && response.statusCode <= 300) {
+        var jsonData = jsonDecode(response.body);
+        return ProductItem.fromJson(jsonData);
       }
       throw Exception();
-    }catch(e){
+    } catch (e) {
       throw Exception();
     }
-
   }
-
 
 }
