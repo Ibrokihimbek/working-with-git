@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class AppIcon {
   AppIcon._();
 
@@ -7,5 +5,15 @@ class AppIcon {
   static const icon_basket = "assets/icons/icon_basket.svg";
   static const icon_search = 'assets/icons/icon_search.svg';
   static const icon_voice = 'assets/icons/icon_voice.svg';
+
+  // Image
+
+  static const splash_image = 'assets/splash/splash_image.svg';
+
+  static const icon_heart = 'assets/icons/icon_heart.svg';
+  static const icon_wallet = 'assets/icons/icon_wallet.svg';
+  static const icon_cart = 'assets/icons/icon_cart.svg';
+  static const icon_home = 'assets/icons/icon_home.svg';
+
 
 }
