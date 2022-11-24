@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:working_with_git/screens/app_routs.dart';
 
 import '../../../data/api/models/product_model.dart';
@@ -43,7 +45,13 @@ class _CategoryHomeItemsState extends State<CategoryHomeItems> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, RoutName.productInfo);
+                    Navigator.pushNamed(
+                      context,
+                      RoutName.productInfo,
+                      arguments: {
+                        'productInfo': data[index].id,
+                      },
+                    );
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -59,8 +67,23 @@ class _CategoryHomeItemsState extends State<CategoryHomeItems> {
                             child: SizedBox(
                               width: 100.w,
                               height: 100.w,
-                              child: Image.network(
-                                data[index].image!,
+                              child: CachedNetworkImage(
+                                imageUrl: data[index].image!,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) {
+                                  return Shimmer.fromColors(
+                                    period: const Duration(seconds: 2),
+                                    baseColor: Colors.grey.shade300,
+                                    highlightColor: Colors.grey.shade100,
+                                    child: Container(
+                                      width: 120,
+                                      height: 100,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                },
+                                errorWidget: (context, url, error) =>
+                                    const Icon(Icons.error),
                               ),
                             ),
                           ),

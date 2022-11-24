@@ -17,19 +17,17 @@ class AppRoutes {
     switch (settings.name) {
       case RoutName.splash:
         return MaterialPageRoute(builder: (_) => SplashPage());
-      case RoutName.productInfo:
-        return MaterialPageRoute(builder: (_) => ProductInfoPage());
       case RoutName.main:
         return MaterialPageRoute(builder: (_) => MainPage());
       case RoutName.home:
         return MaterialPageRoute(builder: (_) => HomePage());
-      // case RoutName.productInfo:
-      //   final args = settings.arguments as Map<String, dynamic>;
-      //   return MaterialPageRoute(
-      //     builder: (_) => ProductInfoPage(
-      //       productInfo: args['productInfo'],
-      //     ),
-      //   );
+      case RoutName.productInfo:
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (_) => ProductInfoPage(
+            productInfo: args['productInfo'],
+          ),
+        );
       default:
         return MaterialPageRoute(builder: (_) => Scaffold());
     }
