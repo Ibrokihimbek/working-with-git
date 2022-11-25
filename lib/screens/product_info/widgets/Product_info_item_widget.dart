@@ -9,6 +9,7 @@ import '../../../data/database/database.dart';
 import '../../../data/database/local_item_model.dart';
 import '../../../utils/app_colors.dart';
 import '../../../widgets/style_widget.dart';
+import 'Product_info_shimmer.dart';
 
 class ProductItemWidget extends StatefulWidget {
   final int productindex;
@@ -29,7 +30,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
       future: AppRepository.getProductFromId(widget.productindex),
       builder: (context, AsyncSnapshot<ProductItem> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return ProductItemShimmer();
         }
         if (snapshot.hasData) {
           var data = snapshot.data;
@@ -74,7 +75,8 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                     SizedBox(
                       width: double.infinity,
                       child: Text(
-                        data!.title.toString(),
+                       data.title.toString().length > 53 ? "${data.title.toString().substring(0,53)}...."
+                           : data.title.toString(),
                         style: fontInterW400(appcolor: AppColors.C_8F959E),
                       ),
                     ),
