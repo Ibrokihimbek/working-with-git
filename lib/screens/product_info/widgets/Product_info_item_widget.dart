@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../data/api/models/product_model.dart';
 import '../../../data/api/repository/repository_item.dart';
+import '../../../data/count_price_model.dart';
 import '../../../data/database/database.dart';
 import '../../../data/database/local_item_model.dart';
 import '../../../utils/app_colors.dart';
@@ -21,7 +22,7 @@ class ProductItemWidget extends StatefulWidget {
 int categoryindex = 0;
 
 class _ProductItemWidgetState extends State<ProductItemWidget> {
-  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ProductItem>(
@@ -107,8 +108,8 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                 InkWell(
                   borderRadius: BorderRadius.circular(15.r),
                   onTap: (() async {
-                    count++;
-                    count == 1 ? await LocalDatabase.insertToDatabase(Product(
+                    CountPrice.tests[data.id!.toInt()].count++;
+                    CountPrice.tests[data.id!.toInt()].count  == 1 ? await LocalDatabase.insertToDatabase(Product(
                         image_url: data.image.toString(),
                         id: data.id!.toInt(),
                         name: data.title.toString(),
