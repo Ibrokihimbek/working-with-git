@@ -5,11 +5,14 @@ import 'package:working_with_git/utils/app_colors.dart';
 import 'package:working_with_git/utils/app_icon.dart';
 import 'package:working_with_git/widgets/style_widget.dart';
 
+import '../../data/boxmodel/Count_Item_model.dart';
 import '../../data/database/database.dart';
 import '../../data/database/local_item_model.dart';
 
 class BoxPage extends StatefulWidget {
+
   const BoxPage({Key? key}) : super(key: key);
+
 
   @override
   State<BoxPage> createState() => _BoxPageState();
@@ -88,6 +91,7 @@ class _BoxPageState extends State<BoxPage> {
                                   SizedBox(height: 10.h),
                                   SizedBox(
                                     width: 218.w,
+
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -157,6 +161,7 @@ class _BoxPageState extends State<BoxPage> {
         child: SvgPicture.asset(
           iconName,
         ),
+
       ),
     );
   }

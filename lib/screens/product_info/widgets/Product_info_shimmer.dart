@@ -39,8 +39,8 @@ class ProductItemShimmer extends StatelessWidget {
           shimmerMethod(350, 20),
           SizedBox(height: 1.h),
           shimmerMethod(200, 20),
-          SizedBox(height: 45.h),
-          shimmerMethod(double.infinity, 75),
+          SizedBox(height: 30.h),
+          shimmerMethod(double.infinity, 60),
         ],
       ),
     );
