@@ -17,7 +17,7 @@ class CategoryHomeItems extends StatefulWidget {
   @override
   State<CategoryHomeItems> createState() => _CategoryHomeItemsState();
 }
-
+   int categoryindex = 0;
 class _CategoryHomeItemsState extends State<CategoryHomeItems> {
   @override
   Widget build(BuildContext context) {

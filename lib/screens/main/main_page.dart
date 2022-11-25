@@ -6,6 +6,8 @@ import 'package:working_with_git/utils/app_colors.dart';
 import 'package:working_with_git/utils/app_icon.dart';
 import 'package:working_with_git/widgets/style_widget.dart';
 
+import '../boxpage/boxpage.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List<Widget> _pages = [
     HomePage(),
-    Container(),
+    BoxPage(),
     Container(),
   ];
 
