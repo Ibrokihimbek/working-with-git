@@ -69,7 +69,7 @@ class _CategoryHomeItemsState extends State<CategoryHomeItems> {
                               height: 100.w,
                               child: CachedNetworkImage(
                                 imageUrl: data[index].image!,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                                 placeholder: (context, url) {
                                   return Shimmer.fromColors(
                                     period: const Duration(seconds: 2),

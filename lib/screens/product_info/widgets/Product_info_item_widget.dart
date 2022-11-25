@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:working_with_git/screens/product_info/widgets/Product_info_shimmer.dart';
 import '../../../data/api/models/product_model.dart';
 import '../../../data/api/repository/repository_item.dart';
 import '../../../data/database/database.dart';
@@ -28,7 +29,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
       future: AppRepository.getProductFromId(widget.productindex),
       builder: (context, AsyncSnapshot<ProductItem> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
+          return const ProductItemShimmer();
         }
         if (snapshot.hasData) {
           var data = snapshot.data;
@@ -73,7 +74,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                     SizedBox(
                       width: double.infinity,
                       child: Text(
-                        data!.title.toString(),
+                        data.title.toString().length > 50 ? "${data.title
+                            .toString().substring(0, 50)}..." :
+                        data.title.toString(),
                         style: fontInterW400(appcolor: AppColors.C_8F959E),
                       ),
                     ),
@@ -103,7 +106,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                   style: fontInterW400(appcolor: AppColors.C_8F959E)
                       .copyWith(fontSize: 15.sp),
                 ),
-                SizedBox(height: 50.h),
+                SizedBox(height: 30.h),
                 InkWell(
                   borderRadius: BorderRadius.circular(15.r),
                   onTap: (() async {

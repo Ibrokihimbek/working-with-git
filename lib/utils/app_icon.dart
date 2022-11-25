@@ -10,6 +10,9 @@ class AppIcon {
   static const icon_cart = 'assets/icons/icon_cart.svg';
   static const icon_home = 'assets/icons/icon_home.svg';
   static const icon_back_arrow = 'assets/icons/icon_back_arrow.svg';
+  static const icon_delete = 'assets/icons/icon_delete.svg';
+  static const icon_arrow_down = 'assets/icons/icon_arrow_down.svg';
+  static const icon_arrpw_up = 'assets/icons/icon_arroe_up.svg';
 
   // PNG
 

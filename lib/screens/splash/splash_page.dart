@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:working_with_git/utils/app_colors.dart';
 import 'package:working_with_git/utils/app_icon.dart';
@@ -23,7 +22,7 @@ class _SplashPageState extends State<SplashPage> {
 
   onNextPage() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, RoutName.main);
+      Navigator.pushReplacementNamed(context, RoutName.main);
 
     });
   }
