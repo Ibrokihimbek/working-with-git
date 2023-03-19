@@ -16,11 +16,17 @@ class AppRoutes {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RoutName.splash:
-        return MaterialPageRoute(builder: (_) => SplashPage());
+        return MaterialPageRoute(
+          builder: (_) => SplashPage(),
+        );
       case RoutName.main:
-        return MaterialPageRoute(builder: (_) => MainPage());
+        return MaterialPageRoute(
+          builder: (_) => MainPage(),
+        );
       case RoutName.home:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(
+          builder: (_) => HomePage(),
+        );
       case RoutName.productInfo:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
